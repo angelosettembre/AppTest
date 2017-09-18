@@ -5,11 +5,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class MainActivity extends Activity {
     public ListView listView;
@@ -31,9 +33,10 @@ public class MainActivity extends Activity {
 
         for (ApplicationInfo applicationInfo : apps)
         {
-            if((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 1){
+            if((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 1) {
                 App a = new App();
-                a.setName(applicationInfo.name);
+                a.setName((String) pm.getApplicationLabel(applicationInfo));
+                Log.d("DEBUG", "NOME APP" + a.getName());
                 a.setIcon(pm.getApplicationIcon(applicationInfo));
                 customAdapter.add(a);
             }
