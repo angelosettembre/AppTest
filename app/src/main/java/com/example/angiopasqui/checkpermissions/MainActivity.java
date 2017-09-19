@@ -3,13 +3,11 @@ package com.example.angiopasqui.checkpermissions;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +15,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class MainActivity extends Activity {
     public ListView listView;
@@ -62,7 +59,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 App a = customAdapter.getItem(position);
-                Intent i = new Intent(getApplicationContext(), AppDetail.class);
+                Intent i = new Intent(getApplicationContext(), AppDetails.class);
                 i.putExtra("Nome app", a.getName());
                 Log.d("DEBUG","COSSSSAA"+a.getName());
                 Drawable s = a.getIcon();

@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AppDetail"
+            android:name=".AppDetails"
             android:label="AppDetail" >
         </activity>
     </application>
